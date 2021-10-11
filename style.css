@@ -1,0 +1,113 @@
+/* Roboto font */
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* Color variables for easier manipulation/scalability */
+
+:root {
+  --gray-color: #D2D2D2;
+  --green-color: #81FD5D;
+  --beige-color: #F7EBD9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--beige-color);
+  font-family: 'Muli', sans-serif;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  width: 80%;
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  /* Separate the empty spaces between each number */
+  justify-content: space-between;
+  position: relative;
+  margin: 0 auto 30px auto;
+  /* margin-bottom: 30px; */
+  /* max-width: 100%; */
+  width: 500px;
+}
+
+.progress-container::before {
+  content: '';
+  background-color: var(--gray-color);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* Center the whole bar instead of just centering the top of the bar */
+  transform: translateY(-50%);
+  height: 4px;
+  /* Width 98% to avoid the bar stretching outside the last number nad showing a few pixels */
+  width: 98%;
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--green-color);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: var(--gray-color);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--gray-color);
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--green-color);
+  color: var(--green-color);
+}
+
+.btn {
+  background-color: var(--green-color);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 25px;
+  margin: 4px;
+}
+
+/* Give the button a slight animation when clicked */
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--gray-color);
+  cursor: not-allowed;
+}
